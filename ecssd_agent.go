@@ -184,7 +184,7 @@ func createDNSRecord(serviceName string, dockerId string, port string) error {
 		ChangeBatch: &route53.ChangeBatch{
 			Changes: []*route53.Change{
 				{
-					Action: aws.String(route53.ChangeActionCreate),
+					Action: aws.String(route53.ChangeActionUpsert),
 					ResourceRecordSet: &route53.ResourceRecordSet{
 						Name: aws.String(srvRecordName),
 						// It creates a SRV record with the name of the service
